@@ -165,7 +165,7 @@ const app = Vue.createApp({
                 }
             ],
 
-            
+            activeIndex : 0,
 
         }
     },
