@@ -171,9 +171,7 @@ const app = Vue.createApp({
     },
 
     methods: {
-        addMsg(){
-            let msg = this.contacts.messages.date;
-        }
+   
     },
 })
 

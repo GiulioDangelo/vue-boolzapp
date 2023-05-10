@@ -55,7 +55,8 @@
 
                         <div class="contact-data">
                             <h4 class="name"> {{ contact.name }} </h4>
-                            <div class="date"> {{ contact.messages.date }} </div>
+                            <div class="date" for> {{ contact.messages[0].date }} </div>
+                            <div class="last-msg"> {{ contact.messages[0].message }} </div>
                         </div>
 
                     </div>
