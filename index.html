@@ -49,15 +49,18 @@
                 <div class="contacts">
                     <div class="contact" v-for="(contact, i) in contacts" :key="i">
 
-                        <div class="img-container">
-                            <img :src="contact.avatar" alt="">
+                        <div class="d-flex">
+                            <div class="img-container">
+                                <img :src="contact.avatar" alt="">
+                            </div>
+    
+                            <div class="contact-data">
+                                <h4 class="name"> {{ contact.name }} </h4>
+                                <div class="last-msg"> {{ contact.messages[contact.messages.length - 1].message }} </div>
+                            </div>
                         </div>
 
-                        <div class="contact-data">
-                            <h4 class="name"> {{ contact.name }} </h4>
-                            <div class="date" for> {{ contact.messages[contact.messages.length - 1].date }} </div>
-                            <div class="last-msg"> {{ contact.messages[contact.messages.length - 1].message }} </div>
-                        </div>
+                        <div class="date ps-5 text-end"> {{ contact.messages[contact.messages.length - 1].date }} </div>
 
                     </div>
                 </div>
