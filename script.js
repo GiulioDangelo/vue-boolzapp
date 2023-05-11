@@ -188,6 +188,7 @@ const app = Vue.createApp({
 
 			this.contacts[this.activeIndex].messages.push(newObj);
 
+			
 			setTimeout(() => {
 				let newAns = {
                     date: this.getDate(),
@@ -198,15 +199,19 @@ const app = Vue.createApp({
 			this.contacts[this.activeIndex].messages.push(newAns);
 
 			}, 1000);
+
+			this.newMsg = ''
 		},
+
 
 		deleteMsg(i){
 			this.contacts[this.activeIndex].messages.splice(i ,1)
 		},
 
+
 		getDate(){
 			return dayjs().format('DD/MM/YYYY HH:mm:ss')
-		}
+		},
 
 	},
 
