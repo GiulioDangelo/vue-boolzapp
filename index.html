@@ -108,7 +108,7 @@
                     <template v-for="(contact, i) in contacts" :key="i">
 
                         <div v-for="(msg, i) in contact.messages" :key="msg" :class="msg.status == 'sent' ? 'sent' : 'recived'" class="d-flex justify-content-between">
-                            {{msg.message[activeIndex]}}
+                            {{msg.message}}
                             <span class="msg-time">12:00</span>
                         </div>
 
