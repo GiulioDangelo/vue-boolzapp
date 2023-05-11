@@ -121,7 +121,7 @@
 
                     <i class="fa-solid fa-face-smile icon"></i>
 
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="request" v-model="newMsg.message">
 
                     <i class="fa-solid fa-microphone icon"></i>
 
