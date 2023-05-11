@@ -181,7 +181,7 @@ const app = Vue.createApp({
 
 		request(text) {
 			let newObj = {
-				date: "10/01/2020 15:51:00",
+				date: this.getDate(),
 				message: text,
 				status: "sent",
 			};
@@ -190,16 +190,23 @@ const app = Vue.createApp({
 
 			setTimeout(() => {
 				let newAns = {
-                    date: "10/01/2020 15:51:00",
+                    date: this.getDate(),
                     message: 'ok',
                     status: "recived",
                 }
 
 			this.contacts[this.activeIndex].messages.push(newAns);
 
-                console.log('daje')
 			}, 1000);
 		},
+
+		deleteMsg(i){
+			this.contacts[this.activeIndex].messages.splice(i ,1)
+		},
+
+		getDate(){
+			return dayjs().format('DD/MM/YYYY HH:mm:ss')
+		}
 
 	},
 
@@ -209,7 +216,8 @@ const app = Vue.createApp({
                 return contacts.name.toLowerCase().includes(this.search.toLowerCase())
         }
     )}
-    
-}});
+}
+
+});
 
 app.mount('#app')
