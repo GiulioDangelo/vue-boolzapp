@@ -105,14 +105,10 @@
                 
                 <div class="chat"> 
 
-                    <template v-for="(contact, i) in contacts" :key="i">
-
-                        <div v-for="(msg, i) in contact.messages" :key="msg" :class="msg.status == 'sent' ? 'sent' : 'recived'" class="d-flex justify-content-between">
+                        <div v-for="(msg, i) in contacts[activeIndex].messages" :key="msg" :class="msg.status == 'sent' ? 'sent' : 'recived'" class="d-flex justify-content-between">
                             {{msg.message}}
                             <span class="msg-time">12:00</span>
                         </div>
-
-                    </template>
 
                 </div> 
                 
@@ -121,7 +117,7 @@
 
                     <i class="fa-solid fa-face-smile icon"></i>
 
-                    <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="request" v-model="newMsg.message">
+                    <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="request(newMsg)" v-model="this.newMsg">
 
                     <i class="fa-solid fa-microphone icon"></i>
 

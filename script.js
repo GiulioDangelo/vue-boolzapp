@@ -167,18 +167,7 @@ const app = Vue.createApp({
 
 			activeIndex: 0,
 
-            newMsg: {
-				name: "",
-				avatar: "",
-				visible: true,
-				messages: [
-					{
-						date: "",
-						message: "",
-						status: "sent",
-					},
-				],
-			},
+			newMsg: "",
 		};
 	},
 
@@ -187,18 +176,35 @@ const app = Vue.createApp({
 			this.activeIndex = i;
 		},
 
-        
 		// answer() {
-        //     setTimeout(() => {
-        //         console.log('ok');
-        //     }, 1000);
-        // },
+		//     setTimeout(() => {
+		//         console.log('ok');
+		//     }, 1000);
+		// },
 
+		request(text) {
+			let newObj = {
+				date: "10/01/2020 15:51:00",
+				message: text,
+				status: "sent",
+			};
 
-        request() {
-        this.contacts.push(newMsg) 
-        },
+			this.contacts[this.activeIndex].messages.push(newObj);
+
+			setTimeout(() => {
+				let newAns = {
+                    date: "10/01/2020 15:51:00",
+                    message: 'ok',
+                    status: "recived",
+                }
+
+			this.contacts[this.activeIndex].messages.push(newAns);
+
+                console.log('daje')
+			}, 1000);
+		},
 	},
+
 });
 
 app.mount('#app')
