@@ -171,7 +171,10 @@ const app = Vue.createApp({
     },
 
     methods: {
-  
+        activeChat(i){
+            this.activeIndex = i
+        },
+        
     },
 })
 

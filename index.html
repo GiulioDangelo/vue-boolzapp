@@ -53,7 +53,8 @@
 
 
                 <div class="contacts">
-                    <div class="contact" v-for="(contact, i) in contacts" :key="i">
+
+                    <div class="contact" v-for="(contact, i) in contacts" :key="i" @click="activeChat(i)">
 
                         <div class="d-flex">
 
@@ -80,7 +81,18 @@
 
                 <div class="nav-right">
 
-                    <div class="chat-contact"></div>
+                    <div class="chat-contact d-flex align-items-center">
+
+                        <div class="img-container">
+                            <img :src="contacts[activeIndex].avatar" alt="">
+                        </div>
+
+                        <div class="chat-contact-text">
+                            <h3 class="chat-name">{{contacts[activeIndex].name}}</h3>
+                            <span>Ultimo accesso alle 12:00</span>
+                        </div>
+                        
+                    </div>
 
                     <div class="chat-icon icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -93,11 +105,10 @@
                 
                 <div class="chat"> 
 
-                    <template v-for="(item, i) in contacts" :key="i">
+                    <template v-for="(contact, i) in contacts" :key="i">
 
-                        <div v-for="(msg, i) in item.messages" :key="msg" :class="msg.status == 'sent' ? 'sent' : 'recived'" class="d-flex justify-content-between">
-
-                            {{msg.message}}
+                        <div v-for="(msg, i) in contact.messages" :key="msg" :class="msg.status == 'sent' ? 'sent' : 'recived'" class="d-flex justify-content-between">
+                            {{msg.message[activeIndex]}}
                             <span class="msg-time">12:00</span>
                         </div>
 
