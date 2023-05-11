@@ -168,6 +168,8 @@ const app = Vue.createApp({
 			activeIndex: 0,
 
 			newMsg: "",
+
+            search: '',
 		};
 	},
 
@@ -176,11 +178,6 @@ const app = Vue.createApp({
 			this.activeIndex = i;
 		},
 
-		// answer() {
-		//     setTimeout(() => {
-		//         console.log('ok');
-		//     }, 1000);
-		// },
 
 		request(text) {
 			let newObj = {
@@ -203,8 +200,16 @@ const app = Vue.createApp({
                 console.log('daje')
 			}, 1000);
 		},
+
 	},
 
-});
+    computed: {
+        filter(){
+            return this.contacts.filter((contacts) => {
+                return contacts.name.toLowerCase().includes(this.search.toLowerCase())
+        }
+    )}
+    
+}});
 
 app.mount('#app')

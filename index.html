@@ -48,13 +48,13 @@
 
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></i></span>
-                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search">
                 </div>
 
 
                 <div class="contacts">
 
-                    <div class="contact" v-for="(contact, i) in contacts" :key="i" @click="activeChat(i)">
+                    <div class="contact" v-for="(contact, i) in filter" :key="i" @click="activeChat(i)">
 
                         <div class="d-flex">
 
