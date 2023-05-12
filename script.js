@@ -174,8 +174,8 @@ const app = Vue.createApp({
 	},
 
 	methods: {
-		activeChat(i) {
-			this.activeIndex = i;
+		activeChat(element){
+			this.activeIndex = this.contacts.indexOf(element)
 		},
 
 
@@ -188,7 +188,7 @@ const app = Vue.createApp({
 
 			this.contacts[this.activeIndex].messages.push(newObj);
 
-			
+
 			setTimeout(() => {
 				let newAns = {
                     date: this.getDate(),
@@ -212,6 +212,7 @@ const app = Vue.createApp({
 		getDate(){
 			return dayjs().format('DD/MM/YYYY HH:mm:ss')
 		},
+
 
 	},
 

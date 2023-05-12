@@ -103,19 +103,28 @@ body{
     overflow-y: scroll;
 }
 
+.contacts :hover{
+    cursor: pointer;
+}
+
 .contact{
     height: 15%;
     padding:50px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid rgb(233, 233, 233); */
+    border: 1px solid rgb(233, 233, 233);
 }
 
 .contact .img-container img{
     width: 70px;
     border-radius: 50%;
 }
+
+.contact:active{
+    background-color: rgb(212, 212, 212);
+}
+
 
 .right{
     background-image: url(img/mine.jpg);
@@ -163,7 +172,7 @@ body{
     margin: 20px;
     border-radius: 10px;
     padding:0px 10px;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .recived{
