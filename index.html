@@ -56,20 +56,20 @@
 
                     <div class="contact" v-for="(contact, i) in filter" :key="i" @click="activeChat(contact)">
 
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
 
                             <div class="img-container">
                                 <img :src="contact.avatar" alt="">
                             </div>
-    
+                            
                             <div class="contact-data">
                                 <h4 class="name"> {{ contact.name }} </h4>
                                 <div class="last-msg"> {{ contact.messages[contact.messages.length - 1].message }} </div>
                             </div>
-
+                            
                         </div>
-
-                        <div class="date ps-5 text-end"> {{ contact.messages[contact.messages.length - 1].date.slice(0,16) }} </div>
+                        
+                        <div class="date ps-5 text-end"> {{ contact.messages[contact.messages.length - 1].date.slice(10,16) }} </div>
 
                     </div>
                 </div>
