@@ -174,11 +174,13 @@ const app = Vue.createApp({
 	},
 
 	methods: {
+		// index of active chat 
 		activeChat(element){
 			this.activeIndex = this.contacts.indexOf(element)
 		},
 
 
+		// push new message in array and recive answer after 1 seconds
 		request(text) {
 			let newObj = {
 				date: this.getDate(),
@@ -204,11 +206,13 @@ const app = Vue.createApp({
 		},
 
 
+		// delete message from array at click
 		deleteMsg(i){
 			this.contacts[this.activeIndex].messages.splice(i ,1)
 		},
 
 
+		// get current date and time
 		getDate(){
 			return dayjs().format('DD/MM/YYYY HH:mm:ss')
 		},
@@ -216,7 +220,9 @@ const app = Vue.createApp({
 
 	},
 
+	
     computed: {
+		//search bar filter
         filter(){
             return this.contacts.filter((contacts) => {
                 return contacts.name.toLowerCase().includes(this.search.toLowerCase())

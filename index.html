@@ -25,6 +25,7 @@
                         <span class="fw-bold">Sofia</span>
                     </div>
 
+
                     <div class="icon">
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
@@ -53,7 +54,7 @@
 
 
                 <div class="contacts">
-
+                    <!-- show list of contact -->
                     <div class="contact" v-for="(contact, i) in filter" :key="i" @click="activeChat(contact)">
 
                         <div class="d-flex align-items-center">
@@ -69,7 +70,7 @@
                             
                         </div>
                         
-                        <div class="date ps-5 text-end"> {{ contact.messages[contact.messages.length - 1].date.slice(10,16) }} </div>
+                        <div class="date ps-5 text-end"> {{ contact.messages[contact.messages.length - 1].date.slice(10,16) }}</div>
 
                     </div>
                 </div>
@@ -77,8 +78,10 @@
             </div>
     
 
+
             <div class="right">
 
+                <!-- header chat contact info -->
                 <div class="nav-right">
 
                     <div class="chat-contact d-flex align-items-center">
@@ -104,7 +107,7 @@
 
                 
                 <div class="chat"> 
-
+                    <!-- show message in activeIndex chat -->
                         <div v-for="(msg, i) in contacts[activeIndex].messages" :key="msg" :class="msg.status == 'sent' ? 'sent' : 'recived'" class="d-flex justify-content-between">
                             {{msg.message}}
 
@@ -130,6 +133,7 @@
 
                     <i class="fa-solid fa-face-smile icon"></i>
 
+                    <!-- input to add message -->
                     <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="request(newMsg)" v-model="this.newMsg">
 
                     <i class="fa-solid fa-microphone icon"></i>
