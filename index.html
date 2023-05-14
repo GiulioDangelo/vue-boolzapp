@@ -92,7 +92,7 @@
 
                         <div class="chat-contact-text">
                             <h3 class="chat-name">{{contacts[activeIndex].name}}</h3>
-                            <span>Ultimo accesso alle 12:00</span>
+                            <span>Ultimo accesso alle {{ contacts[activeIndex].messages[this.contacts[activeIndex].messages.length - 1].date.slice(10, 16) }}</span>
                         </div>
                         
                     </div>
