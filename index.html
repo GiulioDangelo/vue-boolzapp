@@ -65,12 +65,14 @@
                             
                             <div class="contact-data">
                                 <h4 class="name"> {{ contact.name }} </h4>
-                                <div class="last-msg"> {{ contact.messages[contact.messages.length - 1].message }} </div>
+                                <!-- <div class="last-msg"> {{ contact.messages.length ? contact.messages[contact.messages.length - 1].message : '' }} </div> -->
+                                <div class=“last-msg” v-if='contact.messages.length > 0'> {{ contact.messages[contact.messages.length - 1].message }} </div>
+                                
                             </div>
                             
                         </div>
                         
-                        <div class="date ps-5 text-end"> {{ contact.messages[contact.messages.length - 1].date.slice(10,16) }}</div>
+                        <div class="date ps-5 text-end"  v-if='contact.messages.length > 0'> {{ contact.messages[contact.messages.length - 1].date.slice(10,16) }}</div>
 
                     </div>
                 </div>
@@ -92,7 +94,7 @@
 
                         <div class="chat-contact-text">
                             <h3 class="chat-name">{{contacts[activeIndex].name}}</h3>
-                            <span>Ultimo accesso alle {{ contacts[activeIndex].messages[this.contacts[activeIndex].messages.length - 1].date.slice(10, 16) }}</span>
+                            <span v-if='contacts[activeIndex].messages.length > 0'>Ultimo accesso alle {{ contacts[activeIndex].messages[this.contacts[activeIndex].messages.length - 1].date.slice(10, 16) }}</span>
                         </div>
                         
                     </div>
